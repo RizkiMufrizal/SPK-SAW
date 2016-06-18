@@ -1,56 +1,72 @@
-<!--
+<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+        </div>
 
- Author Rizki Mufrizal <mufrizalrizki@gmail.com>
- Since Mar 31, 2016
- Time 4:29:42 PM
- Encoding UTF-8
- Project Aplikasi-Kebudayaan-Aceh
- Package Expression package is undefined on line 9, column 12 in Templates/Scripting/EmptyPHPWebPage.php.
+        <div class="clearfix"></div>
 
--->
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="">Metode Saw</a>
-    </div>
-    <!-- Top Menu Items -->
+        <!-- menu profile quick info -->
+        <div class="profile">
+            <div class="profile_pic">
+                <img src="<?php echo base_url(); ?>assets/images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+                <span>Selamat Datang</span>
+                <h2><?php echo $this->session->userdata('username'); ?></h2>
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
 
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav side-nav">
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/admin"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController"><i class="glyphicon glyphicon-dashboard"></i> Data Calon Siswa</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController"><i class="glyphicon glyphicon-dashboard"></i> Data Kriteria</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController"><i class="glyphicon glyphicon-dashboard"></i> Data Nilai Calon Siswa</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/admin/NormalisasiController"><i class="glyphicon glyphicon-dashboard"></i> Data Normalisasi Dan Rangking</a>
-            </li>
-        </ul>
+        <br />
 
-        <ul class="nav navbar-right top-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> <?php echo $this->session->userdata('username'); ?> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
                     <li>
-                        <a href="<?php echo base_url(); ?>index.php/admin/logout"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
+                        <a href="<?php echo base_url(); ?>index.php/admin">
+                            <i class="fa fa-home"></i> Home
+                        </a>
+                        <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController">
+                            <i class="fa fa-home"></i> Data Calon Siswa
+                        </a>
+                        <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController">
+                            <i class="fa fa-home"></i> Data Kriteria
+                        </a>
+                        <a href="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController">
+                            <i class="fa fa-home"></i> Data Nilai Calon Siswa
+                        </a>
+                        <a href="<?php echo base_url(); ?>index.php/admin/NormalisasiController">
+                            <i class="fa fa-home"></i> Data Normalisasi Dan Rangking
+                        </a>
                     </li>
                 </ul>
-            </li>
-        </ul>
-
+            </div>
+        </div>
     </div>
-</nav>
+</div>
+
+<!-- top navigation -->
+<div class="top_nav">
+    <div class="nav_menu">
+        <nav>
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                        <img src="<?php echo base_url(); ?>assets/images/img.jpg" alt=""><?php echo $this->session->userdata('username'); ?>
+                        <span class=" fa fa-angle-down"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                        <li><a href="<?php echo base_url(); ?>index.php/admin/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

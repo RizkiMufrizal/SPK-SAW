@@ -12,78 +12,84 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Metode Saw</title>
+        <title>SPK SAW</title>
 
         <?php $this->load->view('admin/layout/CssLayout') ?>
-
     </head>
-    <body>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
 
-        <div id="wrapper">
+                <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <?php $this->load->view('admin/layout/HeaderLayout') ?>
-
-            <div id="page-wrapper">
-
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">
-                                Data Normalisasi
-                            </h1>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="glyphicon glyphicon-dashboard"></i> Data Normalisasi
-                                </li>
-                            </ol>
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Data Nilai Calon Siswa</h3>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
+                        <div class="clearfix"></div>
 
-                            <a href="<?php echo base_url(); ?>index.php/admin/NormalisasiController/prosesNormalisasi">
-                                <button class="btn btn-primary">Proses Normalisasi</button>
-                            </a>
+                        <div class="row">
 
-                            <p></p>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_content">
 
-                            <table id="normalisasi" class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>NIM</th>
-                                        <th>Nama</th>
-                                        <th>Nilai Psikotes</th>
-                                        <th>Nilai PSM Test</th>
-                                        <th>Nilai Angket Siswa</th>
-                                        <th>Nilai UN</th>
-                                        <th>Nilai Raport</th>
-                                        <th>Total Nilai</th>
-                                        <th>Rangking</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $i = 0;
-                                    foreach ($normalisasi as $n) {
-                                        ++$i; ?>
-                                        <tr>
-                                            <td><?php echo $n->nim; ?></td>
-                                            <td><?php echo $n->nama; ?></td>
-                                            <td><?php echo $n->nilai_c1; ?></td>
-                                            <td><?php echo $n->nilai_c2; ?></td>
-                                            <td><?php echo $n->nilai_c3; ?></td>
-                                            <td><?php echo $n->nilai_c4; ?></td>
-                                            <td><?php echo $n->nilai_c5; ?></td>
-                                            <td><?php echo $n->total_nilai; ?></td>
-                                            <td><?php echo $i; ?></td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
+                                        <a href="<?php echo base_url(); ?>index.php/admin/NormalisasiController/prosesNormalisasi">
+                                            <button class="btn btn-primary">Proses Normalisasi</button>
+                                        </a>
+
+                                        <p></p>
+
+                                        <table id="normalisasi" class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>NIM</th>
+                                                    <th>Nama</th>
+                                                    <th>Nilai Psikotes</th>
+                                                    <th>Nilai PSM Test</th>
+                                                    <th>Nilai Angket Siswa</th>
+                                                    <th>Nilai UN</th>
+                                                    <th>Nilai Raport</th>
+                                                    <th>Total Nilai</th>
+                                                    <th>Rangking</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php $i = 0; foreach ($normalisasi as $n) { ++$i;
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $n->nim; ?></td>
+                                                        <td><?php echo $n->nama; ?></td>
+                                                        <td><?php echo $n->nilai_c1; ?></td>
+                                                        <td><?php echo $n->nilai_c2; ?></td>
+                                                        <td><?php echo $n->nilai_c3; ?></td>
+                                                        <td><?php echo $n->nilai_c4; ?></td>
+                                                        <td><?php echo $n->nilai_c5; ?></td>
+                                                        <td><?php echo $n->total_nilai; ?></td>
+                                                        <td><?php echo $i; ?></td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <footer>
+                    <div class="pull-right">
+                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
             </div>
         </div>
 

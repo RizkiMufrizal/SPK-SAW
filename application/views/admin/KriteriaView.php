@@ -12,96 +12,103 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Metode Saw</title>
+        <title>SPK SAW</title>
 
         <?php $this->load->view('admin/layout/CssLayout') ?>
-
     </head>
-    <body>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
 
-        <div id="wrapper">
+                <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <?php $this->load->view('admin/layout/HeaderLayout') ?>
-
-            <div id="page-wrapper">
-
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">
-                                Data Kriteria
-                            </h1>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="glyphicon glyphicon-dashboard"></i> Data Kriteria
-                                </li>
-                            </ol>
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Data Kriteria</h3>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
+                        <div class="clearfix"></div>
 
-                            <?php if (sizeof($kriteria) == 5) { ?>
-                                <button class="btn btn-primary" disabled>Tambah Data</button>
-                            <?php } else { ?>
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
-                            <?php } ?>
+                        <div class="row">
 
-                            <p></p>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_content">
 
-                            <table id="kriteria" class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">ID Kriteria</th>
-                                        <th class="text-center">Keterangan</th>
-                                        <th class="text-center">Kriteria</th>
-                                        <th class="text-center">Bobot</th>
-                                        <th class="text-center">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $totalBobot = 0;
-                                    foreach ($kriteria as $k) {
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $k->id_kriteria; ?></td>
-                                            <td><?php echo $k->keterangan; ?></td>
-                                            <td><?php echo $k->kriteria; ?></td>
-                                            <td><?php echo $k->bobot; ?></td>
-                                            <td class="text-center">
-                                                <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController/editKriteria/<?php echo $k->id_kriteria; ?>">
-                                                    <button class="btn btn-success">
-                                                        <i class="glyphicon glyphicon-pencil"></i>
-                                                    </button>
-                                                </a>
-                                                <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController/hapusKriteria/<?php echo $k->id_kriteria; ?>">
-                                                    <button class="btn btn-danger">
-                                                        <i class="glyphicon glyphicon-trash"></i>
-                                                    </button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        $totalBobot = $totalBobot + $k->bobot;
-                                    }
-                                    ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td>Total Kriteria : </td>
-                                        <td><?php echo $totalBobot; ?></td>
-                                        <td></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                                        <?php if (sizeof($kriteria) == 5) { ?>
+                                            <button class="btn btn-primary" disabled>Tambah Data</button>
+                                        <?php } else { ?>
+                                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
+                                        <?php } ?>
+
+                                        <p></p>
+
+                                        <table id="kriteria" class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">ID Kriteria</th>
+                                                    <th class="text-center">Keterangan</th>
+                                                    <th class="text-center">Kriteria</th>
+                                                    <th class="text-center">Bobot</th>
+                                                    <th class="text-center">Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $totalBobot = 0;
+                                                foreach ($kriteria as $k) {
+                                                    ?>
+                                                    <tr>
+                                                        <td><?php echo $k->id_kriteria; ?></td>
+                                                        <td><?php echo $k->keterangan; ?></td>
+                                                        <td><?php echo $k->kriteria; ?></td>
+                                                        <td><?php echo $k->bobot; ?></td>
+                                                        <td class="text-center">
+                                                            <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController/editKriteria/<?php echo $k->id_kriteria; ?>">
+                                                                <button class="btn btn-success">
+                                                                    <i class="glyphicon glyphicon-pencil"></i>
+                                                                </button>
+                                                            </a>
+                                                            <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController/hapusKriteria/<?php echo $k->id_kriteria; ?>">
+                                                                <button class="btn btn-danger">
+                                                                    <i class="glyphicon glyphicon-trash"></i>
+                                                                </button>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    <?php
+                                                    $totalBobot = $totalBobot + $k->bobot;
+                                                }
+                                                ?>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>Total Kriteria : </td>
+                                                    <td><?php echo $totalBobot; ?></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <footer>
+                    <div class="pull-right">
+                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
             </div>
         </div>
 

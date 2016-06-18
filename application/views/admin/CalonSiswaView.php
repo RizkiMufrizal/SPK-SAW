@@ -12,95 +12,100 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Metode Saw</title>
+        <title>SPK SAW</title>
 
         <?php $this->load->view('admin/layout/CssLayout') ?>
-
     </head>
-    <body>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
 
-        <div id="wrapper">
+                <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <?php $this->load->view('admin/layout/HeaderLayout') ?>
-
-            <div id="page-wrapper">
-
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">
-                                Data Calon Siswa
-                            </h1>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="glyphicon glyphicon-dashboard"></i> Data Calon Siswa
-                                </li>
-                            </ol>
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Data Calon Siswa</h3>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
+                        <div class="clearfix"></div>
 
-                            <form method="post" action="<?php echo base_url() ?>index.php/admin/CalonSiswaController/uploadCsvCalonSiswa" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Upload Data Calon Dan Nilai Siswa</label>
-                                    <input type="file" name="csv">
-                                    <p class="help-block">Silahkan browse file csv untuk data calon dan nilai siswa</p>
-                                </div>
-                                <button type="submit" class="btn btn-success">Upload</button>
-                            </form>
+                        <div class="row">
 
-                            <br/>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
+                                    <div class="x_content">
 
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
+                                        <form method="post" action="<?php echo base_url() ?>index.php/admin/CalonSiswaController/uploadCsvCalonSiswa" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label for="exampleInputFile">Upload Data Calon Dan Nilai Siswa</label>
+                                                <input type="file" name="csv">
+                                                <p class="help-block">Silahkan browse file csv untuk data calon dan nilai siswa</p>
+                                            </div>
+                                            <button type="submit" class="btn btn-success">Upload</button>
+                                        </form>
 
-                            <?php if (sizeof($calon_siswa) <= 0) { ?>
-                                <button class="btn btn-danger" disabled>Hapus Seluruh Data</button>
-                            <?php } else { ?>
-                                <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/hapusCalonSiswa">
-                                    <button class="btn btn-danger">Hapus Seluruh Data</button>
-                                </a>
-                            <?php } ?>
+                                        <br/>
 
-                            <p></p>
+                                        <button class="btn btn-primary" data-toggle="modal" data-target="#modal">Tambah Data</button>
 
-                            <table id="calonsiswa" class="table table-bordered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>NIM</th>
-                                        <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
-                                        <th>Tanggal Lahir</th>
-                                        <th>Alamat</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($calon_siswa as $s) { ?>
-                                        <tr>
-                                            <td><?php echo $s->nim; ?></td>
-                                            <td><?php echo $s->nama; ?></td>
-                                            <td><?php echo $s->jenis_kelamin; ?></td>
-                                            <td><?php echo $s->tanggal_lahir; ?></td>
-                                            <td><?php echo $s->alamat; ?></td>
-                                            <td class="text-center">
-                                                <?php if ($s->status) { ?>
-                                                    <button class="btn btn-success" disabled>Tambah Nilai</button>
-                                                <?php } else { ?>
-                                                    <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/ambilCalonSiswaDanNilaiBerdasarkanNim/<?php echo $s->nim; ?>">
-                                                        <button class="btn btn-success">Tambah Nilai</button>
-                                                    </a>
+                                        <?php if (sizeof($calon_siswa) <= 0) { ?>
+                                            <button class="btn btn-danger" disabled>Hapus Seluruh Data</button>
+                                        <?php } else { ?>
+                                            <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/hapusCalonSiswa">
+                                                <button class="btn btn-danger">Hapus Seluruh Data</button>
+                                            </a>
+                                        <?php } ?>
+
+                                        <table id="calonsiswa" class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>NIM</th>
+                                                    <th>Nama</th>
+                                                    <th>Jenis Kelamin</th>
+                                                    <th>Tanggal Lahir</th>
+                                                    <th>Alamat</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($calon_siswa as $s) { ?>
+                                                    <tr>
+                                                        <td><?php echo $s->nim; ?></td>
+                                                        <td><?php echo $s->nama; ?></td>
+                                                        <td><?php echo $s->jenis_kelamin; ?></td>
+                                                        <td><?php echo $s->tanggal_lahir; ?></td>
+                                                        <td><?php echo $s->alamat; ?></td>
+                                                        <td class="text-center">
+                                                            <?php if ($s->status) { ?>
+                                                                <button class="btn btn-success" disabled>Tambah Nilai</button>
+                                                            <?php } else { ?>
+                                                                <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/ambilCalonSiswaDanNilaiBerdasarkanNim/<?php echo $s->nim; ?>">
+                                                                    <button class="btn btn-success">Tambah Nilai</button>
+                                                                </a>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
                                                 <?php } ?>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <footer>
+                    <div class="pull-right">
+                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
             </div>
         </div>
 
@@ -145,3 +150,4 @@
         <?php $this->load->view('admin/layout/JsLayout') ?>
     </body>
 </html>
+

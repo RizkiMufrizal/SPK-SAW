@@ -12,85 +12,92 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Metode Saw</title>
+        <title>SPK SAW</title>
 
         <?php $this->load->view('admin/layout/CssLayout') ?>
-
     </head>
-    <body>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
 
-        <div id="wrapper">
+                <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <?php $this->load->view('admin/layout/HeaderLayout') ?>
-
-            <div id="page-wrapper">
-
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">
-                                Tambah Nilai Calon Siswa
-                            </h1>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="glyphicon glyphicon-dashboard"></i> Tambah Nilai Calon Siswa
-                                </li>
-                            </ol>
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Tambah Nilai</h3>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <?php foreach ($calon_siswa_nilai as $c) { ?>
-                                <form method="post" action="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController/tambahNilaiCalonSiswa">
+                        <div class="clearfix"></div>
 
-                                    <div class="form-group">
-                                        <label>NIM</label>
-                                        <input type="text" value="<?php echo $c->nim; ?>" class="form-control" disabled>
-                                        <input type="hidden" name="nim" value="<?php echo $c->nim; ?>" class="form-control">
-                                    </div>
+                        <div class="row">
 
-                                    <div class="form-group">
-                                        <label>Nama</label>
-                                        <input type="text" value="<?php echo $c->nama; ?>" class="form-control" disabled>
-                                        <input type="hidden" name="nama" value="<?php echo $c->nim; ?>" class="form-control">
-                                    </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
 
-                                    <div class="form-group">
-                                        <label>Nilai Psikotes</label>
-                                        <input type="text" name="c1" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 1">
-                                    </div>
+                                <?php foreach ($calon_siswa_nilai as $c) { ?>
+                                    <form method="post" action="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController/tambahNilaiCalonSiswa">
 
-                                    <div class="form-group">
-                                        <label>Nilai PSM Test</label>
-                                        <input type="text" name="c2" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 2">
-                                    </div>
+                                        <div class="form-group">
+                                            <label>NIM</label>
+                                            <input type="text" value="<?php echo $c->nim; ?>" class="form-control" disabled>
+                                            <input type="hidden" name="nim" value="<?php echo $c->nim; ?>" class="form-control">
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label>Nilai Angket Siswa</label>
-                                        <input type="text" name="c3" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 3">
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Nama</label>
+                                            <input type="text" value="<?php echo $c->nama; ?>" class="form-control" disabled>
+                                            <input type="hidden" name="nama" value="<?php echo $c->nim; ?>" class="form-control">
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label>Nilai UN</label>
-                                        <input type="text" name="c4" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 4">
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Nilai Psikotes</label>
+                                            <input type="text" name="c1" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 1">
+                                        </div>
 
-                                    <div class="form-group">
-                                        <label>Nilai Raport</label>
-                                        <input type="text" name="c5" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 5">
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Nilai PSM Test</label>
+                                            <input type="text" name="c2" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 2">
+                                        </div>
 
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </form>
-                            <?php } ?>
+                                        <div class="form-group">
+                                            <label>Nilai Angket Siswa</label>
+                                            <input type="text" name="c3" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 3">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Nilai UN</label>
+                                            <input type="text" name="c4" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 4">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label>Nilai Raport</label>
+                                            <input type="text" name="c5" class="form-control" placeholder="Masukkan Nilai Untuk Kriteria 5">
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </form>
+                                <?php } ?>
+
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- /page content -->
+
+                <!-- footer content -->
+                <footer>
+                    <div class="pull-right">
+                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
             </div>
         </div>
-
         <?php $this->load->view('admin/layout/JsLayout') ?>
     </body>
 </html>
+

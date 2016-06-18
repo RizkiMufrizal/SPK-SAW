@@ -1,54 +1,55 @@
 <!DOCTYPE html>
 <!--
-
     @Author Rizki Mufrizal <mufrizalrizki@gmail.com>
-    @Since Apr 21, 2016
-    @Time 7:11:28 PM
+    @Since Jun 18, 2016
+    @Time 7:29:00 PM
     @Encoding UTF-8
-    @Project Metode-Saw
-    @Package Expression package is undefined on line 9, column 16 in Templates/Scripting/EmptyPHPWebPage.php.
-
+    @Project SPK-SAW
+    @Package Expression package is undefined on line 8, column 16 in Templates/Scripting/EmptyPHPWebPage.php.
 -->
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Metode Saw</title>
+        <title>SPK SAW</title>
 
         <?php $this->load->view('admin/layout/CssLayout') ?>
-
     </head>
-    <body>
+    <body class="nav-md">
+        <div class="container body">
+            <div class="main_container">
 
-        <div id="wrapper">
+                <?php $this->load->view('admin/layout/HeaderLayout') ?>
 
-            <?php $this->load->view('admin/layout/HeaderLayout') ?>
-
-            <div id="page-wrapper">
-
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header">
-                                Dashboard
-                            </h1>
-                            <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="glyphicon glyphicon-dashboard"></i> Dashboard
-                                </li>
-                            </ol>
+                <!-- page content -->
+                <div class="right_col" role="main">
+                    <div class="">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3>Home</h3>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="jumbotron text-center">
-                                <h1>Selamat Datang Admin</h1>
-                                <p>Metode Saw</p>
+                        <div class="clearfix"></div>
+
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="jumbotron text-center">
+                                    <h1>Selamat Datang Admin</h1>
+                                    <p>SPK SAW</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <footer>
+                    <div class="pull-right">
+                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+
             </div>
         </div>
         <?php $this->load->view('admin/layout/JsLayout') ?>

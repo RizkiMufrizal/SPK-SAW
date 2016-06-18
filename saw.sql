@@ -9,8 +9,8 @@
  *
  */
 
-CREATE DATABASE metode_saw;
-USE metode_saw;
+CREATE DATABASE spk_saw;
+USE spk_saw;
 
 CREATE TABLE tb_kriteria(
     id_kriteria VARCHAR(150) NOT NULL PRIMARY KEY,
@@ -28,6 +28,28 @@ CREATE TABLE tb_calon_siswa(
     status BOOLEAN DEFAULT FALSE
 )ENGINE=INNODB;
 
+CREATE TABLE tb_himpunan(
+    id_himpunan VARCHAR(150) NOT NULL PRIMARY KEY,
+    batas_atas INTEGER NOT NULL,
+    batas_bawah INTEGER NOT NULL,
+    nilai FLOAT NOT NULL
+)ENGINE=INNODB;
+
+insert into tb_himpunan(id_himpunan, batas_atas, batas_bawah, nilai)
+    values('1', 0, 70, 0.25);
+
+
+insert into tb_himpunan(id_himpunan, batas_atas, batas_bawah, nilai)
+    values('2', 71, 80, 0.5);
+
+
+insert into tb_himpunan(id_himpunan, batas_atas, batas_bawah, nilai)
+    values('3', 81, 90, 0.75);
+
+
+insert into tb_himpunan(id_himpunan, batas_atas, batas_bawah, nilai)
+    values('4', 91, 100, 1);
+
 CREATE TABLE tb_nilai_calon_siswa(
     id_nilai VARCHAR(150) NOT NULL PRIMARY KEY,
     c1 FLOAT NOT NULL,
@@ -35,6 +57,11 @@ CREATE TABLE tb_nilai_calon_siswa(
     c3 FLOAT NOT NULL,
     c4 FLOAT NOT NULL,
     c5 FLOAT NOT NULL,
+    nilai_asli_c1 FLOAT NOT NULL,
+    nilai_asli_c2 FLOAT NOT NULL,
+    nilai_asli_c3 FLOAT NOT NULL,
+    nilai_asli_c4 FLOAT NOT NULL,
+    nilai_asli_c5 FLOAT NOT NULL,
     nim VARCHAR(50) NOT NULL,
     FOREIGN KEY(nim) REFERENCES tb_calon_siswa(nim)
         ON DELETE CASCADE
@@ -68,7 +95,12 @@ SELECT
   `tb_nilai_calon_siswa`.`c2`,
   `tb_nilai_calon_siswa`.`c3`,
   `tb_nilai_calon_siswa`.`c4`,
-  `tb_nilai_calon_siswa`.`c5`
+  `tb_nilai_calon_siswa`.`c5`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c1`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c2`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c3`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c4`,
+  `tb_nilai_calon_siswa`.`nilai_asli_c5`
 FROM
   `tb_calon_siswa`
 INNER JOIN

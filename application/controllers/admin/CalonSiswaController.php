@@ -8,18 +8,17 @@
  * Project Metode-Saw
  * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
  */
-class CalonSiswaController extends CI_Controller
-{
-    public function __construct()
-    {
+class CalonSiswaController extends CI_Controller {
+
+    public function __construct() {
         parent::__construct();
         $this->load->library('CSVReader');
         $this->load->model('CalonSiswa');
         $this->load->model('NilaiCalonSiswa');
+        $this->load->model('Himpunan');
     }
 
-    public function index()
-    {
+    public function index() {
         $session = $this->session->userdata('isLogin');
 
         if ($session == false) {
@@ -30,8 +29,7 @@ class CalonSiswaController extends CI_Controller
         }
     }
 
-    public function tambahCalonSiswa()
-    {
+    public function tambahCalonSiswa() {
         $val = array(
             'nim' => $this->input->post('nim'),
             'nama' => $this->input->post('nama'),
@@ -43,20 +41,17 @@ class CalonSiswaController extends CI_Controller
         redirect('admin/CalonSiswaController');
     }
 
-    public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim)
-    {
+    public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim) {
         $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNim($nim);
         $this->load->view('admin/CalonSiswaTambahNilaView', $data);
     }
 
-    public function hapusCalonSiswa()
-    {
+    public function hapusCalonSiswa() {
         $this->CalonSiswa->hapusCalonSiswa();
         redirect('admin/CalonSiswaController');
     }
 
-    public function uploadCsvCalonSiswa()
-    {
+    public function uploadCsvCalonSiswa() {
         $namaFile = $this->uuid->v4();
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'csv';
@@ -68,7 +63,7 @@ class CalonSiswaController extends CI_Controller
             echo $this->upload->display_errors();
         } else {
             $file_data = $this->upload->data();
-            $file_path = './uploads/'.$file_data['file_name'];
+            $file_path = './uploads/' . $file_data['file_name'];
 
             $result = $this->csvreader->parse_file($file_path);
 
@@ -93,14 +88,41 @@ class CalonSiswaController extends CI_Controller
                 $c4 = $row['nilai_un'];
                 $c5 = $row['nilai_raport'];
 
+                foreach ($this->Himpunan->ambilHimpunan() as $h) {
+                    if ($c1 >= $h->batas_atas and $c1 <= $h->batas_bawah) {
+                        $c1 = $h->nilai;
+                    }
+
+                    if ($c2 >= $h->batas_atas and $c2 <= $h->batas_bawah) {
+                        $c2 = $h->nilai;
+                    }
+
+                    if ($c3 >= $h->batas_atas and $c3 <= $h->batas_bawah) {
+                        $c3 = $h->nilai;
+                    }
+
+                    if ($c4 >= $h->batas_atas and $c4 <= $h->batas_bawah) {
+                        $c4 = $h->nilai;
+                    }
+
+                    if ($c5 >= $h->batas_atas and $c5 <= $h->batas_bawah) {
+                        $c5 = $h->nilai;
+                    }
+                }
+
                 $val = array(
                     'id_nilai' => $this->uuid->v4(),
+                    'nilai_asli_c1' => $row['nilai_psikotes'],
+                    'nilai_asli_c2' => $row['nilai_psm_test'],
+                    'nilai_asli_c3' => $row['nilai_angket_siswa'],
+                    'nilai_asli_c4' => $row['nilai_un'],
+                    'nilai_asli_c5' => $row['nilai_raport'],
                     'c1' => $c1,
                     'c2' => $c2,
                     'c3' => $c3,
                     'c4' => $c4,
                     'c5' => $c5,
-                    'nim' => $nim,
+                    'nim' => $nim
                 );
 
                 $this->NilaiCalonSiswa->tambahNilaiCalonSiswa($val);
@@ -114,4 +136,5 @@ class CalonSiswaController extends CI_Controller
             redirect('admin/CalonSiswaController');
         }
     }
+
 }

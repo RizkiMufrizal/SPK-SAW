@@ -29,7 +29,7 @@ class NilaiCalonSiswaController extends CI_Controller {
     }
 
     public function tambahNilaiCalonSiswa() {
-        $nim = $this->input->post('nim');
+        $nisn = $this->input->post('nisn');
         $c1 = $this->input->post('c1');
         $c2 = $this->input->post('c2');
         $c3 = $this->input->post('c3');
@@ -70,7 +70,7 @@ class NilaiCalonSiswaController extends CI_Controller {
             'c3' => $c3,
             'c4' => $c4,
             'c5' => $c5,
-            'nim' => $nim,
+            'nisn' => $nisn,
         );
 
         $this->NilaiCalonSiswa->tambahNilaiCalonSiswa($val);
@@ -78,7 +78,7 @@ class NilaiCalonSiswaController extends CI_Controller {
         $valCalonSiswa = array(
             'status' => true,
         );
-        $this->CalonSiswa->ubahCalonSiswa($valCalonSiswa, $nim);
+        $this->CalonSiswa->ubahCalonSiswa($valCalonSiswa, $nisn);
 
         redirect('admin/NilaiCalonSiswaController');
     }

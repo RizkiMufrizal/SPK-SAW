@@ -48,22 +48,24 @@
                                         <table id="normalisasi" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>NIM</th>
+                                                    <th>NISN</th>
                                                     <th>Nama</th>
-                                                    <th>Nilai Psikotes</th>
-                                                    <th>Nilai PSM Test</th>
-                                                    <th>Nilai Angket Siswa</th>
-                                                    <th>Nilai UN</th>
+                                                    <th>Nilai Peminatan</th>
+                                                    <th>Nilai Hasil Pendekatan Psikotest</th>
+                                                    <th>Nilai Placementtes</th>
                                                     <th>Nilai Raport</th>
+                                                    <th>Nilai UN</th>
                                                     <th>Total Nilai</th>
                                                     <th>Rangking</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $i = 0; foreach ($normalisasi as $n) { ++$i;
+                                                <?php $i = 0;
+                                                foreach ($normalisasi as $n) {
+                                                    ++$i;
                                                     ?>
                                                     <tr>
-                                                        <td><?php echo $n->nim; ?></td>
+                                                        <td><?php echo $n->nisn; ?></td>
                                                         <td><?php echo $n->nama; ?></td>
                                                         <td><?php echo $n->nilai_c1; ?></td>
                                                         <td><?php echo $n->nilai_c2; ?></td>
@@ -73,7 +75,7 @@
                                                         <td><?php echo $n->total_nilai; ?></td>
                                                         <td><?php echo $i; ?></td>
                                                     </tr>
-                                                <?php } ?>
+<?php } ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -93,6 +95,6 @@
             </div>
         </div>
 
-        <?php $this->load->view('admin/layout/JsLayout') ?>
+<?php $this->load->view('admin/layout/JsLayout') ?>
     </body>
 </html>

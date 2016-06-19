@@ -42,19 +42,19 @@
                                         <table id="calonsiswa" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>NIM</th>
+                                                    <th>NISN</th>
                                                     <th>Nama</th>
-                                                    <th>Nilai Psikotes</th>
-                                                    <th>Nilai PSM Test</th>
-                                                    <th>Nilai Angket Siswa</th>
-                                                    <th>Nilai UN</th>
+                                                    <th>Nilai Peminatan</th>
+                                                    <th>Nilai Hasil Pendekatan Psikotest</th>
+                                                    <th>Nilai Placementtes</th>
                                                     <th>Nilai Raport</th>
+                                                    <th>Nilai UN</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($nilai_calon_siswa as $n) { ?>
                                                     <tr>
-                                                        <td><?php echo $n->nim; ?></td>
+                                                        <td><?php echo $n->nisn; ?></td>
                                                         <td><?php echo $n->nama; ?></td>
                                                         <td><?php echo $n->c1; ?></td>
                                                         <td><?php echo $n->c2; ?></td>

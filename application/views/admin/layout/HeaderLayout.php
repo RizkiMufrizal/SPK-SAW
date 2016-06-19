@@ -59,6 +59,14 @@
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
             </div>
 
+            <ul class="nav navbar-nav">
+                <li class="">
+                    <a class="user-profile dropdown-toggle">
+                        SMA BLA BLA
+                    </a>
+                </li>
+            </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

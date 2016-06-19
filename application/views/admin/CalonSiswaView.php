@@ -63,27 +63,33 @@
                                         <table id="calonsiswa" class="table table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>NIM</th>
+                                                    <th>NISN</th>
                                                     <th>Nama</th>
-                                                    <th>Jenis Kelamin</th>
+                                                    <th>Tempat Lahir</th>
                                                     <th>Tanggal Lahir</th>
-                                                    <th>Alamat</th>
+                                                    <th>Nama Orang Tua</th>
+                                                    <th>Pekerjaan Orang Tua</th>
+                                                    <th>No Telepon</th>
+                                                    <th>Keterangan</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($calon_siswa as $s) { ?>
                                                     <tr>
-                                                        <td><?php echo $s->nim; ?></td>
+                                                        <td><?php echo $s->nisn; ?></td>
                                                         <td><?php echo $s->nama; ?></td>
-                                                        <td><?php echo $s->jenis_kelamin; ?></td>
+                                                        <td><?php echo $s->tempat_lahir; ?></td>
                                                         <td><?php echo $s->tanggal_lahir; ?></td>
-                                                        <td><?php echo $s->alamat; ?></td>
+                                                        <td><?php echo $s->nama_orang_tua; ?></td>
+                                                        <td><?php echo $s->pekerjaan_orang_tua; ?></td>
+                                                        <td><?php echo $s->no_telepon; ?></td>
+                                                        <td><?php echo $s->keterangan; ?></td>
                                                         <td class="text-center">
                                                             <?php if ($s->status) { ?>
                                                                 <button class="btn btn-success" disabled>Tambah Nilai</button>
                                                             <?php } else { ?>
-                                                                <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/ambilCalonSiswaDanNilaiBerdasarkanNim/<?php echo $s->nim; ?>">
+                                                                <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/ambilCalonSiswaDanNilaiBerdasarkanNisn/<?php echo $s->nisn; ?>">
                                                                     <button class="btn btn-success">Tambah Nilai</button>
                                                                 </a>
                                                             <?php } ?>
@@ -120,24 +126,36 @@
                     <div class="modal-body">
                         <form action="<?php echo base_url(); ?>index.php/admin/CalonSiswaController/tambahCalonSiswa" method="post">
                             <div class="form-group">
-                                <label>NIM</label>
-                                <input type="text" name="nim" class="form-control" placeholder="Masukkan NIM Anda">
+                                <label>NISN</label>
+                                <input type="text" name="nisn" class="form-control" placeholder="Masukkan NISN Anda">
                             </div>
                             <div class="form-group">
                                 <label>Nama</label>
                                 <input type="text" name="nama" class="form-control" placeholder="Masukkan Nama Anda">
                             </div>
                             <div class="form-group">
-                                <label>Jenis Kelamin</label>
-                                <input type="text" name="jenis_kelamin" class="form-control" placeholder="Masukkan Jenis Kelamin Anda">
+                                <label>Tempat Lahir</label>
+                                <input type="text" name="tempat_lahir" class="form-control" placeholder="Masukkan Tempat Lahir Anda">
                             </div>
                             <div class="form-group">
                                 <label>Tanggal Lahir</label>
                                 <input type="date" name="tanggal_lahir" class="form-control" placeholder="Masukkan Tanggal Lahir Anda">
                             </div>
                             <div class="form-group">
-                                <label>Alamat</label>
-                                <textarea name="alamat" class="form-control" placeholder="Masukkan Alamat Anda"></textarea>
+                                <label>Nama Orang Tua</label>
+                                <input type="text" name="nama_orang_tua" class="form-control" placeholder="Masukkan Nama Orang Tua Anda">
+                            </div>
+                            <div class="form-group">
+                                <label>Pekerjaan Orang Tua</label>
+                                <input type="text" name="pekerjaan_orang_tua" class="form-control" placeholder="Masukkan Pekerjaan Orang Tua Anda">
+                            </div>
+                            <div class="form-group">
+                                <label>No Telepon</label>
+                                <input type="text" name="no_telepon" class="form-control" placeholder="Masukkan No Telepon Anda">
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan</label>
+                                <input type="text" name="keterangan" class="form-control" placeholder="Masukkan Keterangan Anda">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Simpan</button>

@@ -1,12 +1,5 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
-        <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
-        </div>
-
-        <div class="clearfix"></div>
-
-        <!-- menu profile quick info -->
         <div class="profile">
             <div class="profile_pic">
                 <img src="<?php echo base_url(); ?>assets/images/img.jpg" alt="..." class="img-circle profile_img">
@@ -16,11 +9,9 @@
                 <h2><?php echo $this->session->userdata('username'); ?></h2>
             </div>
         </div>
-        <!-- /menu profile quick info -->
 
         <br />
 
-        <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
                 <h3>General</h3>
@@ -30,19 +21,19 @@
                             <i class="fa fa-home"></i> Home
                         </a>
                         <a href="<?php echo base_url(); ?>index.php/admin/CalonSiswaController">
-                            <i class="fa fa-home"></i> Data Calon Siswa
+                            <i class="fa fa-table"></i> Data Calon Siswa
                         </a>
                         <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController">
-                            <i class="fa fa-home"></i> Data Kriteria
+                            <i class="fa fa-table"></i> Data Kriteria
                         </a>
                         <a href="<?php echo base_url(); ?>index.php/admin/HimpunanController">
-                            <i class="fa fa-home"></i> Data Himpunan
+                            <i class="fa fa-table"></i> Data Himpunan
                         </a>
                         <a href="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController">
-                            <i class="fa fa-home"></i> Data Nilai Calon Siswa
+                            <i class="fa fa-table"></i> Data Nilai Calon Siswa
                         </a>
                         <a href="<?php echo base_url(); ?>index.php/admin/NormalisasiController">
-                            <i class="fa fa-home"></i> Data Normalisasi Dan Rangking
+                            <i class="fa fa-bar-chart-o"></i> Data Normalisasi Dan Rangking
                         </a>
                     </li>
                 </ul>

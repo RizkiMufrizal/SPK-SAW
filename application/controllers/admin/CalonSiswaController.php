@@ -16,6 +16,7 @@ class CalonSiswaController extends CI_Controller {
         $this->load->model('CalonSiswa');
         $this->load->model('NilaiCalonSiswa');
         $this->load->model('Himpunan');
+        $this->load->model('Kriteria');
     }
 
     public function index() {
@@ -31,18 +32,22 @@ class CalonSiswaController extends CI_Controller {
 
     public function tambahCalonSiswa() {
         $val = array(
-            'nim' => $this->input->post('nim'),
+            'nisn' => $this->input->post('nisn'),
             'nama' => $this->input->post('nama'),
-            'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+            'tempat_lahir' => $this->input->post('tempat_lahir'),
             'tanggal_lahir' => $this->input->post('tanggal_lahir'),
-            'alamat' => $this->input->post('alamat'),
+            'nama_orang_tua' => $this->input->post('nama_orang_tua'),
+            'pekerjaan_orang_tua' => $this->input->post('pekerjaan_orang_tua'),
+            'no_telepon' => $this->input->post('no_telepon'),
+            'keterangan' => $this->input->post('keterangan')
         );
         $this->CalonSiswa->tambahCalonSiswa($val);
         redirect('admin/CalonSiswaController');
     }
 
-    public function ambilCalonSiswaDanNilaiBerdasarkanNim($nim) {
-        $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNim($nim);
+    public function ambilCalonSiswaDanNilaiBerdasarkanNisn($nisn) {
+        $data['calon_siswa_nilai'] = $this->CalonSiswa->ambilCalonSiswaBerdasarkanNisn($nisn);
+        $data['kriteria'] = $this->Kriteria->ambilKriteria();
         $this->load->view('admin/CalonSiswaTambahNilaView', $data);
     }
 
@@ -70,23 +75,26 @@ class CalonSiswaController extends CI_Controller {
             //simpan calon siswa
             foreach ($result as $row) {
                 $val = array(
-                    'nim' => $row['nim'],
+                    'nisn' => $row['nisn'],
                     'nama' => $row['nama'],
-                    'jenis_kelamin' => $row['jenis_kelamin'],
+                    'tempat_lahir' => $row['tempat_lahir'],
                     'tanggal_lahir' => $row['tanggal_lahir'],
-                    'alamat' => $row['alamat'],
+                    'nama_orang_tua' => $row['nama_orang_tua'],
+                    'pekerjaan_orang_tua' => $row['pekerjaan_orang_tua'],
+                    'no_telepon' => $row['no_telepon'],
+                    'keterangan' => $row['keterangan']
                 );
                 $this->CalonSiswa->tambahCalonSiswa($val);
             }
 
             //simpan calon siswa
             foreach ($result as $row) {
-                $nim = $row['nim'];
-                $c1 = $row['nilai_psikotes'];
-                $c2 = $row['nilai_psm_test'];
-                $c3 = $row['nilai_angket_siswa'];
-                $c4 = $row['nilai_un'];
-                $c5 = $row['nilai_raport'];
+                $nisn = $row['nisn'];
+                $c1 = $row['nilai_peminatan'];
+                $c2 = $row['nilai_hasil_pendekatan_psikotest'];
+                $c3 = $row['nilai_placementtes'];
+                $c4 = $row['nilai_raport'];
+                $c5 = $row['nilai_un'];
 
                 foreach ($this->Himpunan->ambilHimpunan() as $h) {
                     if ($c1 >= $h->batas_atas and $c1 <= $h->batas_bawah) {
@@ -112,17 +120,17 @@ class CalonSiswaController extends CI_Controller {
 
                 $val = array(
                     'id_nilai' => $this->uuid->v4(),
-                    'nilai_asli_c1' => $row['nilai_psikotes'],
-                    'nilai_asli_c2' => $row['nilai_psm_test'],
-                    'nilai_asli_c3' => $row['nilai_angket_siswa'],
-                    'nilai_asli_c4' => $row['nilai_un'],
-                    'nilai_asli_c5' => $row['nilai_raport'],
+                    'nilai_asli_c1' => $row['nilai_peminatan'],
+                    'nilai_asli_c2' => $row['nilai_hasil_pendekatan_psikotest'],
+                    'nilai_asli_c3' => $row['nilai_placementtes'],
+                    'nilai_asli_c4' => $row['nilai_raport'],
+                    'nilai_asli_c5' => $row['nilai_un'],
                     'c1' => $c1,
                     'c2' => $c2,
                     'c3' => $c3,
                     'c4' => $c4,
                     'c5' => $c5,
-                    'nim' => $nim
+                    'nisn' => $nisn
                 );
 
                 $this->NilaiCalonSiswa->tambahNilaiCalonSiswa($val);
@@ -130,7 +138,7 @@ class CalonSiswaController extends CI_Controller {
                 $valCalonSiswa = array(
                     'status' => true,
                 );
-                $this->CalonSiswa->ubahCalonSiswa($valCalonSiswa, $nim);
+                $this->CalonSiswa->ubahCalonSiswa($valCalonSiswa, $nisn);
             }
 
             redirect('admin/CalonSiswaController');

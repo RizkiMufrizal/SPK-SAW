@@ -35,6 +35,9 @@
                         <a href="<?php echo base_url(); ?>index.php/admin/KriteriaController">
                             <i class="fa fa-home"></i> Data Kriteria
                         </a>
+                        <a href="<?php echo base_url(); ?>index.php/admin/HimpunanController">
+                            <i class="fa fa-home"></i> Data Himpunan
+                        </a>
                         <a href="<?php echo base_url(); ?>index.php/admin/NilaiCalonSiswaController">
                             <i class="fa fa-home"></i> Data Nilai Calon Siswa
                         </a>

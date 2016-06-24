@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>SPK SAW</title>
+        <title>SMA 12 TANGGERANG SELATAN</title>
 
         <?php $this->load->view('admin/layout/CssLayout') ?>
     </head>
@@ -36,7 +36,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="jumbotron text-center">
                                     <h1>Selamat Datang Admin</h1>
-                                    <p>SPK SAW</p>
+                                    <p>SMA 12 TANGGERANG SELATAN</p>
                                 </div>
                             </div>
                         </div>

@@ -13,7 +13,7 @@ CREATE DATABASE spk_saw;
 USE spk_saw;
 
 CREATE TABLE tb_kriteria(
-    id_kriteria VARCHAR(150) NOT NULL PRIMARY KEY,
+    id_kriteria INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
     kriteria VARCHAR(10) NOT NULL,
     keterangan VARCHAR(50) NOT NULL,
     bobot FLOAT NOT NULL
@@ -32,22 +32,22 @@ CREATE TABLE tb_calon_siswa(
 )ENGINE=INNODB;
 
 CREATE TABLE tb_himpunan(
-    id_himpunan VARCHAR(150) NOT NULL PRIMARY KEY,
+    id_himpunan INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
     batas_atas INTEGER NOT NULL,
     batas_bawah INTEGER NOT NULL,
     nilai FLOAT NOT NULL
 )ENGINE=INNODB;
 
 CREATE TABLE tb_nilai_calon_siswa(
-    id_nilai VARCHAR(150) NOT NULL PRIMARY KEY,
+    id_nilai INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
     c1 FLOAT NOT NULL,
     c2 FLOAT NOT NULL,
     c3 FLOAT NOT NULL,
     c4 FLOAT NOT NULL,
     c5 FLOAT NOT NULL,
-    nilai_asli_c1 FLOAT NOT NULL,
-    nilai_asli_c2 FLOAT NOT NULL,
-    nilai_asli_c3 FLOAT NOT NULL,
+    nilai_asli_c1 CHAR(3) NOT NULL,
+    nilai_asli_c2 CHAR(3) NOT NULL,
+    nilai_asli_c3 CHAR(3) NOT NULL,
     nilai_asli_c4 FLOAT NOT NULL,
     nilai_asli_c5 FLOAT NOT NULL,
     nisn VARCHAR(50) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE tb_nilai_calon_siswa(
 )ENGINE=INNODB;
 
 CREATE TABLE tb_normalisasi(
-    id_normalisasi VARCHAR(150) NOT NULL PRIMARY KEY,
+    id_normalisasi INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,
     nilai_c1 FLOAT NOT NULL,
     nilai_c2 FLOAT NOT NULL,
     nilai_c3 FLOAT NOT NULL,
@@ -71,8 +71,8 @@ CREATE TABLE tb_normalisasi(
 )ENGINE=INNODB;
 
 CREATE TABLE tb_user(
-    email VARCHAR(50) NOT NULL PRIMARY KEY,
-    password VARCHAR(150) NOT NULL
+    username VARCHAR(50) NOT NULL PRIMARY KEY,
+    password VARCHAR(50) NOT NULL
 )ENGINE=INNODB;
 
 CREATE VIEW `tb_calon_siswa_nilai` AS
@@ -109,4 +109,4 @@ FROM
 INNER JOIN
   `tb_normalisasi` ON `tb_calon_siswa`.`nisn` = `tb_normalisasi`.`nisn`;
 
-INSERT INTO `tb_user` (`email`, `password`) VALUES ('admin@gmail.com', '$2a$06$4zliyvsxzOUndwPSM56GYe8LCTMqO.qFNBA6bm9kjjDuHosz7eLyC');
+INSERT INTO `tb_user` (`username`, `password`) VALUES ('admin', 'admin');

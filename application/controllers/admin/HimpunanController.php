@@ -30,7 +30,6 @@ class HimpunanController extends CI_Controller {
 
     public function tambahHimpunan() {
         $val = array(
-            'id_himpunan' => $this->uuid->v4(),
             'batas_atas' => $this->input->post('batas_atas'),
             'batas_bawah' => $this->input->post('batas_bawah'),
             'nilai' => $this->input->post('nilai')

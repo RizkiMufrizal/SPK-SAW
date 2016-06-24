@@ -10,8 +10,8 @@
  */
 class User extends CI_Model {
 
-    public function ambilUserUntukLogin($email) {
-        $this->db->where('email', $email);
+    public function ambilUserUntukLogin($username) {
+        $this->db->where('username', $username);
         $this->db->select('password');
         return $this->db->get('tb_user')->result();
     }

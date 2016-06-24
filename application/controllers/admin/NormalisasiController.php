@@ -78,7 +78,6 @@ class NormalisasiController extends CI_Controller
             foreach ($nilaiHasilBagiAntaraNilaiKriteriaDanNilaiMaxKriteria as $n) {
                 if ($this->Normalisasi->ambilNormalisasiBerdasakanNisn($n['nisn']) == 0) {
                     $val = array(
-                        'id_normalisasi' => $this->uuid->v4(),
                         'nilai_c1' => ($n['hasil_akhir'][0]['hasil'] * $kriteria[0]->bobot),
                         'nilai_c2' => ($n['hasil_akhir'][1]['hasil'] * $kriteria[1]->bobot),
                         'nilai_c3' => ($n['hasil_akhir'][2]['hasil'] * $kriteria[2]->bobot),

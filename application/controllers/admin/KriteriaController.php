@@ -28,7 +28,6 @@ class KriteriaController extends CI_Controller {
 
     public function tambahKriteria() {
         $val = array(
-            'id_kriteria' => $this->uuid->v4(),
             'kriteria' => $this->input->post('kriteria'),
             'bobot' => $this->input->post('bobot'),
             'keterangan' => $this->input->post('keterangan'),

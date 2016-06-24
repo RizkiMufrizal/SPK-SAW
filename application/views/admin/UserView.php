@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Metode SAW</title>
+        <title>SMA 12 TANGGERANG SELATAN</title>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span> <span class="icon-bar"></span> 
                         <span class="icon-bar"></span> 
                     </button>
-                    <a class="navbar-brand" href="#">Metode SAW</a>
+                    <a class="navbar-brand" href="#">SMA 12 TANGGERANG SELATAN</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -67,7 +67,7 @@
                 <h2 class="form-signin-heading">Please sign in</h2>
 
                 <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="text" name="username" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
                 <div class="checkbox">

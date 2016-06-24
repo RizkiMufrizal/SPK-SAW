@@ -36,18 +36,25 @@ class NilaiCalonSiswaController extends CI_Controller {
         $c4 = $this->input->post('c4');
         $c5 = $this->input->post('c5');
 
+        if ($c1 == 'IPA') {
+            $c1 = 1;
+        } else {
+            $c1 = 0.5;
+        }
+
+        if ($c2 == 'IPA') {
+            $c2 = 1;
+        } else {
+            $c2 = 0.5;
+        }
+
+        if ($c3 == 'IPA') {
+            $c3 = 1;
+        } else {
+            $c3 = 0.5;
+        }
+
         foreach ($this->Himpunan->ambilHimpunan() as $h) {
-            if ($c1 >= $h->batas_atas and $c1 <= $h->batas_bawah) {
-                $c1 = $h->nilai;
-            }
-
-            if ($c2 >= $h->batas_atas and $c2 <= $h->batas_bawah) {
-                $c2 = $h->nilai;
-            }
-
-            if ($c3 >= $h->batas_atas and $c3 <= $h->batas_bawah) {
-                $c3 = $h->nilai;
-            }
 
             if ($c4 >= $h->batas_atas and $c4 <= $h->batas_bawah) {
                 $c4 = $h->nilai;
@@ -59,7 +66,6 @@ class NilaiCalonSiswaController extends CI_Controller {
         }
 
         $val = array(
-            'id_nilai' => $this->uuid->v4(),
             'nilai_asli_c1' => $this->input->post('c1'),
             'nilai_asli_c2' => $this->input->post('c2'),
             'nilai_asli_c3' => $this->input->post('c3'),

@@ -53,7 +53,7 @@
             <ul class="nav navbar-nav">
                 <li class="">
                     <a class="user-profile dropdown-toggle">
-                        SMA BLA BLA
+                        SMA 12 TANGGERANG SELATAN
                     </a>
                 </li>
             </ul>

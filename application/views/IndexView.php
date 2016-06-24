@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Metode SAW</title>
+        <title>SMA 12 TANGGERANG SELATAN</title>
 
         <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -28,7 +28,7 @@
                         <span class="icon-bar"></span> <span class="icon-bar"></span> 
                         <span class="icon-bar"></span> 
                     </button>
-                    <a class="navbar-brand" href="#">Metode SAW</a>
+                    <a class="navbar-brand" href="#">SMA 12 TANGGERANG SELATAN</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
@@ -50,11 +50,6 @@
                         <tr>
                             <th>NISN</th>
                             <th>Nama</th>
-                            <th>Nilai Peminatan</th>
-                            <th>Nilai Hasil Pendekatan Psikotest</th>
-                            <th>Nilai Placementtes</th>
-                            <th>Nilai Raport</th>
-                            <th>Nilai UN</th>
                             <th>Total Nilai</th>
                             <th>Rangking</th>
                         </tr>
@@ -66,15 +61,10 @@
                             <tr>
                                 <td><?php echo $n->nisn; ?></td>
                                 <td><?php echo $n->nama; ?></td>
-                                <td><?php echo $n->nilai_c1; ?></td>
-                                <td><?php echo $n->nilai_c2; ?></td>
-                                <td><?php echo $n->nilai_c3; ?></td>
-                                <td><?php echo $n->nilai_c4; ?></td>
-                                <td><?php echo $n->nilai_c5; ?></td>
                                 <td><?php echo $n->total_nilai; ?></td>
                                 <td><?php echo $i; ?></td>
                             </tr>
-<?php } ?>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -87,7 +77,7 @@
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#normalisasi').DataTable({
-                    'order': [[7, 'desc']]
+                    'order': [[2, 'desc']]
                 });
             });
         </script>

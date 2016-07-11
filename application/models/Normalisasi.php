@@ -5,7 +5,7 @@
  * Since Apr 22, 2016
  * Time 8:53:50 PM
  * Encoding UTF-8
- * Project Metode-SAW
+ * Project SPK-SAW
  * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
  */
 class Normalisasi extends CI_Model {

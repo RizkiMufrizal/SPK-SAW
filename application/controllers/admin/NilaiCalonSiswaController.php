@@ -5,7 +5,7 @@
  * Since Apr 21, 2016
  * Time 10:16:56 PM
  * Encoding UTF-8
- * Project Metode-SAW
+ * Project SPK-SAW
  * Package Expression package is undefined on line 14, column 14 in Templates/Scripting/PHPClass.php.
  */
 class NilaiCalonSiswaController extends CI_Controller {
